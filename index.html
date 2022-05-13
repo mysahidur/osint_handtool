@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1" http-equiv="Access-Control-Allow-Origin">
+  	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<title>OSINT Tools Collection</title>
+	<style type="text/css">
+		#site_list + #site_list {
+		    margin-left: 20px;
+		}
+	</style>
+</head>
+<body>
+	<div id="main" class="container-fluid mt-3">
+  
+  </div>
+</body>
+</html>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+
+<!-- GETURLPARAMETER FUNCTION -->
+<script type="text/javascript">
+	var getUrlParameter = function getUrlParameter(sParam) {
+	    var sPageURL = window.location.search.substring(1),
+	        sURLVariables = sPageURL.split('&'),
+	        sParameterName,
+	        i;
+
+	    for (i = 0; i < sURLVariables.length; i++) {
+	        sParameterName = sURLVariables[i].split('=');
+
+	        if (sParameterName[0] === sParam) {
+	            return sParameterName[1] === undefined ? true : decodeURIComponent(sParameterName[1]);
+	        }
+	    }
+	    return false;
+	};
+</script>
+
+<!-- CONTAINS JSON DATASET -->
+<script type="text/javascript">
+	var dataset = 	{
+						"twitter": 
+							[	
+								{
+									"unique_name"	: "adv_search",
+									"display_name" 	: "Twitter Advanced Search",
+									"url"			: "https://twitter.com/search-advanced?lang=en",
+									"enhancable"	: "false"
+								},
+							],
+						"facebook": 
+							[	
+								{
+									"unique_name"	: "fb_video",
+									"display_name" 	: "Facebok Video",
+									"url"			: "https://facebook.com/search-advanced?lang=en",
+									"enhancable"	: "false"
+								},
+							],
+					}
+</script>
+
+
+<!-- CONTAINS MENUES FOR EACH SITE, AND ACTION HANDLER WHEN CLICKED SUBMIT BUTTON -->
+<script>
+
+
+	var container_site_list = `<div class="row"> 
+									<div class="card"> 
+										<div class="card-body"> 
+											<div id="test"></div> 
+											<div class="btn-sticky"></div> 
+										</div> 
+									</div> 
+								</div>`
+
+	var container_search_list_init = `<div class="row">
+										    <div class="col-md-4">
+										    	<div class="form-group">
+									    			<select class="form-control form-control-sm" name="" id="inp_service_provider">
+									    				<option value="all">All</option>
+									    				<option value="g_dork">Google Dork</option>`
+
+
+	var container_search_list_end =					`</select>
+									  			</div>
+										    </div>
+										    <div class="col-md-4">
+										    	<div class="form-group">
+										    		<input type="text" class="form-control form-control-sm" name="" id="inp_search_string">
+										    	</div>
+										    </div>
+										    <div class="col-md-4">
+										    	<button class="btn btn-primary btn-sm" id="btn_search">Search</button>
+										    </div>
+										</div>`									
+
+
+	// code for initially loaded sites
+	var site_list_total_length = Object.keys(dataset).length
+	var site_list = '';
+	for (var i=0;i<site_list_total_length;i++){
+		site_list+='<a id="site_list" href="?site='+Object.keys(dataset)[i]+'">'+Object.keys(dataset)[i]+'</a>'
+	}			
+
+
+
+	$(document).ready(function(){
+
+		var site=getUrlParameter('site');
+		if(site==false){	
+			$('#main').append(container_site_list);
+			$('#test').append(site_list);
+		}
+		else{
+			
+			var total_no_of_providers = Object.keys(dataset[site]).length
+			var container_search_list_mid = '';
+			for (var i=0;i<total_no_of_providers;i++){
+				console.log(dataset[site][i])
+				container_search_list_mid+='<option value="'+dataset[site][i]["unique_name"]+'">'+dataset[site][i]["display_name"]+'</option>'
+			}						    				
+		
+			$('#main').html(container_search_list_init+container_search_list_mid+container_search_list_end);
+			$('#main').append(site_list);
+
+		}
+
+		$("#btn_search").click(function(){
+			var service_provider = $("#inp_service_provider").val();
+			var search_string = $("#inp_search_string").val();
+
+			console.log(site);
+			console.log(service_provider)
+			console.log(search_string)
+		});
+
+	});	
+</script>
+
+
