@@ -46,8 +46,8 @@
 
 <!-- CONTAINS JSON DATASET -->
 <script type="text/javascript">
-	var dataset = 	{
-						"twitter": 
+	var dataset = 	{	
+						"Google": 
 							[	
 								{
 									"unique_name"	: "g_dork",
@@ -62,6 +62,10 @@
 									"url"			: "https://www.google.co.in/advanced_search",
 									"enhancable"	: "false"
 								},
+								
+							],
+						"Twitter": 
+							[	
 								{
 									"unique_name"	: "twitter_adv_search",
 									"display_name" 	: "Twitter Advanced Search",
@@ -97,13 +101,15 @@
 									"unique_name"	: "twiangulate",
 									"display_name" 	: "Twiangulate",
 									"url"			: "https://twiangulate.com/search/",
-									"enhancable"	: "false"
+									"enhancable"	: "true",
+									"enhanced_url"	: "https://twiangulate.com/search/--{{{{}}}}/keywords/table/my_friends-1/keywords_sort-biggest/keywords_mode-friends/"
 								},
 								{
 									"unique_name"	: "twitter_wayback_machine",
 									"display_name" 	: "Twitter Wayback Machine",
 									"url"			: "https://staringispolite.github.io/twayback-machine/",
-									"enhancable"	: "false"
+									"enhancable"	: "true",
+									"enhanced_url"	: "https://twitter.com/search?q=from%3A{{{{}}}}%20until%3A2018-12-31&src=twayback"
 								},
 								{
 									"unique_name"	: "does_follow",
@@ -142,12 +148,147 @@
 									"enhancable"	: "false"
 								},
 							],
-						"facebook": 
+						"Snapchat": 
 							[	
 								{
-									"unique_name"	: "fb_video",
-									"display_name" 	: "Facebok Video",
-									"url"			: "https://facebook.com/search-advanced?lang=en",
+									"unique_name"	: "some_snap_code",
+									"display_name" 	: "Some Snap Code",
+									"url"			: "https://somesnapcode.com/",
+									"enhancable"	: "false"
+								},
+								{
+									"unique_name"	: "snapdex",
+									"display_name" 	: "Snapdex : Ghostdex",
+									"url"			: "https://www.snapdex.com/",
+									"enhancable"	: "false"
+								},
+								{
+									"unique_name"	: "snapchat_map",
+									"display_name" 	: "Snapchat Map : LOC Search",
+									"url"			: "https://map.snapchat.com",
+									"enhancable"	: "false"
+								},
+								{
+									"unique_name"	: "sovip",
+									"display_name" 	: "Sovip : LOC Search",
+									"url"			: "https://sovip.io",
+									"enhancable"	: "false"
+								},
+								{
+									"unique_name"	: "legal",
+									"display_name" 	: "Legal",
+									"url"			: "hilps://storage.googleapis.com/snap-inc/privacy/lawenforcement.pdf",
+									"enhancable"	: "false"
+								},
+							],
+							"Facebook": 
+							[	
+								{
+									"unique_name"	: "fb_expand",
+									"display_name" 	: "Facebook Expand",
+									"url"			: "http://com.hemiola.com/bookmarklet/",
+									"enhancable"	: "false"
+								},
+								{
+									"unique_name"	: "fb_messenger",
+									"display_name" 	: "Facebook Messenger",
+									"url"			: "https://www.messenger.com/",
+									"enhancable"	: "false"
+								},
+								{
+									"unique_name"	: "fb_mobile_view",
+									"display_name" 	: "Facebook Mobile View",
+									"url"			: "https://m.facebook.com/",
+									"enhancable"	: "false"
+								},
+								{
+									"unique_name"	: "fb_watch",
+									"display_name" 	: "Facebook Videos",
+									"url"			: "https://www.facebook.com/watch",
+									"enhancable"	: "false"
+								},
+								{
+									"unique_name"	: "fb_down",
+									"display_name" 	: "Facebook Video Download",
+									"url"			: "https://www.fbdown.net/index.php",
+									"enhancable"	: "false"
+								},
+								{
+									"unique_name"	: "tubeninja",
+									"display_name" 	: "Facebook Video Download",
+									"url"			: "https://www.tubeninja.net/how-to-download/face-book",
+									"enhancable"	: "false"
+								},
+								{
+									"unique_name"	: "netbootcamp",
+									"display_name" 	: "Netbootcamp",
+									"url"			: "http://netbootcamp.org/facebook.html",
+									"enhancable"	: "false"
+								},
+								{
+									"unique_name"	: "research_clinic",
+									"display_name" 	: "Research Tools",
+									"url"			: "http://www.researchclinic.net/facebook/",
+									"enhancable"	: "false"
+								},
+								{
+									"unique_name"	: "user_id_lookup",
+									"display_name" 	: "User Id Lookup",
+									"url"			: "https://lookup-id.com/",
+									"enhancable"	: "false"
+								},
+								{
+									"unique_name"	: "graph_search_1",
+									"display_name" 	: "Graph Search 1 : Socmint Tools",
+									"url"			: "http://socmint.tools/graph.htm",
+									"enhancable"	: "false"
+								},
+								{
+									"unique_name"	: "graph_search_2",
+									"display_name" 	: "Graph Search 2 : People Find Thor",
+									"url"			: "https://peoplefindthor.dk/",
+									"enhancable"	: "false"
+								},
+								{
+									"unique_name"	: "graph_search_3",
+									"display_name" 	: "Graph Search 3 : Pi ToolBox",
+									"url"			: "https://pitoolbox.com.au/facebook-tool/",
+									"enhancable"	: "false"
+								},
+								{
+									"unique_name"	: "graph_search_4",
+									"display_name" 	: "Graph Search 4 : Search is Back",
+									"url"			: "https://searchisback.com/",
+									"enhancable"	: "false"
+								},
+								{
+									"unique_name"	: "graph_search_5",
+									"display_name" 	: "Graph Search 5 : Who Posted What",
+									"url"			: "https://whopostedwhat.com/",
+									"enhancable"	: "false"
+								},
+								{
+									"unique_name"	: "graph_search_6",
+									"display_name" 	: "Graph Search 6 : UK OSINT",
+									"url"			: "https://www.uk-osint.net/facebook.html",
+									"enhancable"	: "false"
+								},
+								{
+									"unique_name"	: "graph_search_7",
+									"display_name" 	: "Graph Search 7 : Search Book",
+									"url"			: "https://github.com/sowdust/searchbook",
+									"enhancable"	: "false"
+								},
+								{
+									"unique_name"	: "graph_discussion",
+									"display_name" 	: "Graph Discussion",
+									"url"			: "https://inteltechniques.com/blog/2019/08/02/  the-privacy-security-osint-show-episode-133/",
+									"enhancable"	: "false"
+								},
+								{
+									"unique_name"	: "legal_privacy",
+									"display_name" 	: "Legal & Privacy",
+									"url"			: "https://www.facebook.com/safety/groups/law/guide-lines",
 									"enhancable"	: "false"
 								},
 							],
