@@ -623,6 +623,74 @@
 								}
 								
 							],
+							"Cryptocurrency": 
+							[	
+								{
+									"unique_name"	: "blockchain.com",
+									"display_name" 	: "Blockchain.com",
+									"url"			: "https://blockchain.com",
+									"enhancable"	: "true",
+									"enhanced_url"	: "https://www.blockchain.com/search?search={{{{}}}}"
+								},
+								{
+									"unique_name"	: "bitcoinwhoswho.com",
+									"display_name" 	: "Bitcoin Whos Who",
+									"url"			: "https://bitcoinwhoswho.com",
+									"enhancable"	: "true",
+									"enhanced_url"	: "https://www.bitcoinwhoswho.com/address/{{{{}}}}"
+								},
+								{
+									"unique_name"	: "walletexplorer.com",
+									"display_name" 	: "Wallet Explorer",
+									"url"			: "https://walletexplorer.com",
+									"enhancable"	: "true",
+									"enhanced_url"	: "https://www.walletexplorer.com/?q={{{{}}}}"
+								},
+								{
+									"unique_name"	: "crystalblockchain_visualisation",
+									"display_name" 	: "CrystalBlockchain Visualisation",
+									"url"			: "https://explorer.crystalblockchain.com",
+									"enhancable"	: "true",
+									"enhanced_url"	: "https://explorer.crystalblockchain.com/visualization/new/{{{{}}}}"
+								},
+								{
+									"unique_name"	: "crystalblockchain_explorer_view",
+									"display_name" 	: "CrystalBlockchain Explorer View",
+									"url"			: "https://explorer.crystalblockchain.com",
+									"enhancable"	: "true",
+									"enhanced_url"	: "https://explorer.crystalblockchain.com/address/{{{{}}}}"
+								},
+								{
+									"unique_name"	: "hashxp",
+									"display_name" 	: "Hashxp",
+									"url"			: "https://hashxp.org",
+									"enhancable"	: "true",
+									"enhanced_url"	: "https://hashxp.org/address/{{{{}}}}"
+								},
+								{
+									"unique_name"	: "learnmeabitcoin",
+									"display_name" 	: "Learn Me A Bitcoin",
+									"url"			: "https://learnmeabitcoin.com/tools/path",
+									"enhancable"	: "false",
+									"enhanced_url"	: ""
+								},
+								{
+									"unique_name"	: "blockchair",
+									"display_name" 	: "Blockchair",
+									"url"			: "https://blockchair.com",
+									"enhancable"	: "true",
+									"enhanced_url"	: "https://blockchair.com/search?q={{{{}}}}"
+								},
+								{
+									"unique_name"	: "usdt_tokenview",
+									"display_name" 	: "usdt tokenview",
+									"url"			: "https://usdt.tokenview.com",
+									"enhancable"	: "true",
+									"enhanced_url"	: "https://tokenview.com/en/search/{{{{}}}}"
+								},
+								
+							],
+
 
 					}
 </script>
@@ -664,10 +732,10 @@
 
 	// code for initially loaded sites
 	var site_list_total_length = Object.keys(dataset).length
-	var site_list = '';
+	var site_list = '<br>';
 	for (var i=0;i<site_list_total_length;i++){
 		site_list+='<a id="site_list" href="?site='+Object.keys(dataset)[i]+'">'+Object.keys(dataset)[i]+'</a>'
-	}			
+	}
 
 
 	$(document).ready(function(){
@@ -696,8 +764,8 @@
 			for (var i=0;i<total_no_of_providers;i++){
 				container_search_list_mid+='<option value="'+dataset[site][i]["unique_name"]+'">'+dataset[site][i]["display_name"]+'</option>'
 			}						    				
-		
-			$('#main').html(container_search_list_init+container_search_list_mid+container_search_list_end);
+			var page_header = '<h3><div>'+site+'</div></h3>'
+			$('#main').html(page_header+container_search_list_init+container_search_list_mid+container_search_list_end);
 			$('#main').append(site_list);
 
 		}
